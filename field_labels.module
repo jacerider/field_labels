@@ -90,7 +90,7 @@ function field_labels_preprocess_field(&$variables) {
       $variables['label'] = $settings['field_labels']['display_label'];
     }
   }
-  if ($field_definition instanceof ThirdPartySettingsInterface) {
+  if ($field_definition instanceof ThirdPartySettingsInterface && empty($element['#field_label_default'])) {
     $definition = $field_definition->getThirdPartySetting('field_labels', 'display_label');
     if (isset($definition) && !empty($definition)) {
       $variables['label'] = $definition;
